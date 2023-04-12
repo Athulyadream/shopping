@@ -26,7 +26,7 @@
                   <h4 class="card-title">List Item</h4></div>
               <div class="col-md-4 col-lg-4">
 
-                  <span  style="float: right;"> <a href="<?php echo BASEURL; ?>addItem" class="btn btn-primary btn-sm"><i class="mdi mdi-plus menu-icon"></i> Add Item</a>
+                  <span  style="float: right;"> <a href="<?php echo BASEURL; ?>item" class="btn btn-primary btn-sm"><i class="mdi mdi-plus menu-icon"></i> Add Item</a>
 </span></div></div>
                  <!--  <p class="card-description">
                     Add class <code>.table-bordered</code>
@@ -94,7 +94,7 @@
                         <?php } endif;?>
                       </tbody>
                     </table>
-                    <?php 
+                  <!--   <?php 
                     if($data['number_of_page'] > 1){ 
                       ?>
                       <br/>
@@ -131,7 +131,7 @@
     
     </li>
    </ul>
-                  <?php  } ?>
+                  <?php  } ?> -->
                   </div>
                 </div>
               </div>

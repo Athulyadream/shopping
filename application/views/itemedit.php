@@ -31,7 +31,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Item Name</label>
                           <div class="col-sm-9">
-                            <input type="text" name="item_name" value="<?=$data['admin_name']?>" placeholder="Item Name" class="form-control" />
+                            <input type="text" name="item_name" value="<?=$data['item_name']?>" placeholder="Item Name" class="form-control" />
                           </div>
                         </div>
                       </div>

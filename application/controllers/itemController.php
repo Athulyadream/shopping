@@ -15,6 +15,12 @@ class itemController extends framework {
     }
 
 //add items
+
+
+    public function item(){
+ 
+        $this->view("item",$data);
+     }
     public function addItem(){
 
 

@@ -23,8 +23,8 @@
            
 
                 <div class="card-body">
-                  <h4 class="card-title">Add Admin</h4>
-                  <form class="form-sample" action="<?php echo BASEURL; ?>/itemlist" method="post" name="add">
+                  <h4 class="card-title">Add Item</h4>
+                  <form class="form-sample" action="<?php echo BASEURL; ?>/addItem" method="post" name="add">
                    
                    <div class="row">
                       <div class="col-md-6">
