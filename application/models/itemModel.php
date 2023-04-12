@@ -5,14 +5,17 @@ class itemModel extends tableop {
 
   public function addItem($data){
         $data = implode(",", $data);
-        $query = $this->insert_query("INSERT INTO `item`( `item_name`, `item_code`, `Item_price`, `Item_category`, `status`, `created_at`) VALUES (".$data.")");
+        $query = $this->insert_query("INSERT INTO `items`( `item_name`, `item_code`, `Item_price`, `Item_category`, `status`, `created_at`) VALUES (".$data.")");
+        echo "INSERT INTO `items`( `item_name`, `item_code`, `Item_price`, `Item_category`, `status`, `created_at`) VALUES (".$data.")";
+        // print_r($query);
+        // die();
          return $query;
           
     }
 
       public function update_table($table,$data,$where){
         $data = implode(",", $data);
-         // $query = $this->insert_query("INSERT INTO cart (buyer_id,  cart_quantity,cart_amount,cart_total,cart_created_at) VALUES('$buyer_id', 'cart_quantity'+$cart_quantity, 'cart_amount'+$cart_amount,'cart_amount'+$cart_amount,'$date')");
+      
 
         $sql = "UPDATE `".$table."` SET ".$data;
          if($where !=""){
@@ -52,12 +55,13 @@ class itemModel extends tableop {
 
 
     public function itemlist($where=NULL){
+
         $sql ="SELECT * FROM `items` ";
 
         if($where != ""){
             $sql .= " WHERE ".$where;
         }
-        $result = $this->query_result_row($sql);
+        $result = $this->query_result($sql);
         if($result){
             return $result;
         }else{

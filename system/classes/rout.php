@@ -5,7 +5,7 @@ class rout {
     // Default contorller, method, params
 
     public $controller = "itemController";
-    public $method     = "index";
+    public $method     = "itemlist";
     public $params     = [];
 
     public function __construct()

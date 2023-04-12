@@ -24,7 +24,7 @@
 
                 <div class="card-body">
                   <h4 class="card-title">Add Item</h4>
-                  <form class="form-sample" action="<?php echo BASEURL; ?>/addItem" method="post" name="add">
+                  <form class="form-sample" action="<?php echo BASEURL; ?>itemController/addItem" method="post" name="add">
                    
                    <div class="row">
                       <div class="col-md-6">
@@ -74,7 +74,7 @@
                      
                     </div>
                     <button type="submit" class="btn btn-primary mr-2" >Submit</button>
-          <a href="<?=BASEURL?>itemlist" class="btn btn-light">Cancel</a>
+          <a href="<?=BASEURL?>itemController/itemlist" class="btn btn-light">Cancel</a>
                   </form>
                 </div>
               </div>

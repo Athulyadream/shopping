@@ -24,7 +24,7 @@
 
                 <div class="card-body">
                   <h4 class="card-title">Edit Item</h4>
-                  <form class="form-sample" action="<?php echo BASEURL; ?>/updateItem/<?=$data['id']?>" method="post">
+                  <form class="form-sample" action="<?php echo BASEURL; ?>itemController/updateItem/<?=$data['id']?>" method="post">
                    
                     <div class="row">
                       <div class="col-md-6">
@@ -39,7 +39,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Item code</label>
                           <div class="col-sm-9">
-                           <input type="text" name="item_code" value="<?=$data['item_Code']?>" placeholder="Item Code" class="form-control" />
+                           <input type="text" name="item_code" value="<?=$data['item_code']?>" placeholder="Item Code" class="form-control" />
                           </div>
                         </div>
                       </div>
@@ -75,7 +75,7 @@
             
 
  <button type="submit" class="btn btn-primary mr-2">Submit</button>
-<a href="<?=BASEURL?>itemlist" class="btn btn-light">Cancel</a>
+<a href="<?=BASEURL?>itemController/itemlist" class="btn btn-light">Cancel</a>
              <!--        <button class="btn btn-light">Cancel</button> -->
 
 

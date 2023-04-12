@@ -26,7 +26,7 @@
                   <h4 class="card-title">List Item</h4></div>
               <div class="col-md-4 col-lg-4">
 
-                  <span  style="float: right;"> <a href="<?php echo BASEURL; ?>item" class="btn btn-primary btn-sm"><i class="mdi mdi-plus menu-icon"></i> Add Item</a>
+                  <span  style="float: right;"> <a href="<?php echo BASEURL; ?>itemController/item" class="btn btn-primary btn-sm"><i class="mdi mdi-plus menu-icon"></i> Add Item</a>
 </span></div></div>
                  <!--  <p class="card-description">
                     Add class <code>.table-bordered</code>
@@ -81,9 +81,9 @@
                             <td>
                               <?php if($value['status'] ==1){ ?><label class="badge badge-success">active</label><?php }else{?> <label class="badge badge-warning">Disabled</label> <?php } ?>
 
-                              <a href="<?php echo BASEURL; ?>/itemedit/<?=$value['id']?>"><i class="mdi mdi-pencil menu-icon"></i></a>
+                              <a href="<?php echo BASEURL; ?>itemController/itemedit/<?=$value['id']?>">Edit<i class="mdi mdi-pencil menu-icon"></i></a>
 
-                              <a href="<?php echo BASEURL; ?>/item_delete/<?=$value['id']?>" onclick="return confirm('Are you sure you want to delete this item')"><i class="mdi mdi-delete menu-icon"></i></a>
+                              <a href="<?php echo BASEURL; ?>itemController/item_delete/<?=$value['id']?>" onclick="return confirm('Are you sure you want to delete this item')">Delete<i class="mdi mdi-delete menu-icon"></i></a>
 
                             
                             </td>
