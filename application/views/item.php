@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Shopping</title>
     <!-- base:css -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <link rel='stylesheet' type='text/css' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+<link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css'>
 
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   </head>
   <body>
     <div class="container-scroller">
@@ -24,7 +28,7 @@
 
                 <div class="card-body">
                   <h4 class="card-title">Add Item</h4>
-                  <form class="form-sample" action="<?php echo BASEURL; ?>itemController/addItem" method="post" name="add">
+                  <form class="form-sample" action="<?php echo BASEURL; ?>itemController/addItem" method="post" name="item">
                    
                    <div class="row">
                       <div class="col-md-6">
@@ -73,7 +77,7 @@
 
                      
                     </div>
-                    <button type="submit" class="btn btn-primary mr-2" >Submit</button>
+                    <button type="submit" class="btn btn-primary mr-2" onclick="return check();">Submit</button>
           <a href="<?=BASEURL?>itemController/itemlist" class="btn btn-light">Cancel</a>
                   </form>
                 </div>
@@ -103,6 +107,48 @@
     <script type="text/javascript">
   
   baseurl = "<?=BASEURL?>";
+     
+    function check(){
+   
+            var alphaExp = /^[a-zA-Z .,@-]+$/;
+            var num = /^([0-9]*)$/;
+            
+            // var emaile = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+            // var phoneve = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+            // var hour=/^[0-9]+([.][0-9]+)?$/;
+
+
+              if(document.item.item_name.value=="")
+              {
+                alert('Item Name field is required');
+                document.item.item_name.focus();
+                return false;
+              }
+              else if(!document.item.item_name.value.match(alphaExp)){
+                alert('Enter valid Item name');
+                document.item.item_name.focus();
+                return false;
+              }else if(document.item.item_code.value=="")
+              {
+                alert('Item code field is required');
+                document.item.item_code.focus();
+                return false;
+              }else if(document.item.Item_price.value=="")
+              {
+                alert('Item price field is required');
+                document.item.Item_price.focus();
+                return false;
+              } else if(!document.item.Item_price.value.match(num)){
+                alert('Enter valid Item price');
+                document.item.Item_price.focus();
+                return false;
+              }else if(document.item.Item_category.value=="")
+              {
+                alert('Item category field is required');
+                document.item.Item_category.focus();
+                return false;
+              }
+    }
  
 </script>
     <!-- End custom js for this page-->

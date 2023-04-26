@@ -24,7 +24,7 @@
 
                 <div class="card-body">
                   <h4 class="card-title">Edit Item</h4>
-                  <form class="form-sample" action="<?php echo BASEURL; ?>itemController/updateItem/<?=$data['id']?>" method="post">
+                  <form class="form-sample" action="<?php echo BASEURL; ?>itemController/updateItem/<?=$data['id']?>" method="post" name="item">
                    
                     <div class="row">
                       <div class="col-md-6">
@@ -74,7 +74,7 @@
                    
             
 
- <button type="submit" class="btn btn-primary mr-2">Submit</button>
+ <button type="submit" class="btn btn-primary mr-2"  onclick="return check();">Submit</button>
 <a href="<?=BASEURL?>itemController/itemlist" class="btn btn-light">Cancel</a>
              <!--        <button class="btn btn-light">Cancel</button> -->
 
@@ -105,9 +105,54 @@
 		</div>
 		<!-- page-body-wrapper ends -->
     </div>
-		<!-- container-scroller -->
-    <!-- base:js -->
+
+
+	    <script type="text/javascript">
+  
+  baseurl = "<?=BASEURL?>";
+     
+    function check(){
    
-    <!-- End custom js for this page-->
+            var alphaExp = /^[a-zA-Z .,@-]+$/;
+            var num = /^([0-9]*)$/;
+            
+            // var emaile = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+            // var phoneve = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+            // var hour=/^[0-9]+([.][0-9]+)?$/;
+
+
+              if(document.item.item_name.value=="")
+              {
+                alert('Item Name field is required');
+                document.item.item_name.focus();
+                return false;
+              }
+              else if(!document.item.item_name.value.match(alphaExp)){
+                alert('Enter valid Item name');
+                document.item.item_name.focus();
+                return false;
+              }else if(document.item.item_code.value=="")
+              {
+                alert('Item code field is required');
+                document.item.item_code.focus();
+                return false;
+              }else if(document.item.Item_price.value=="")
+              {
+                alert('Item price field is required');
+                document.item.Item_price.focus();
+                return false;
+              } else if(!document.item.Item_price.value.match(num)){
+                alert('Enter valid Item price');
+                document.item.Item_price.focus();
+                return false;
+              }else if(document.item.Item_category.value=="")
+              {
+                alert('Item category field is required');
+                document.item.Item_category.focus();
+                return false;
+              }
+    }
+ 
+</script>
   </body>
 </html>

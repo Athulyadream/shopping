@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Shopping</title>
     <!-- base:css -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <link rel='stylesheet' type='text/css' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+<!-- <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css'>
 
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/fontawesome.min.js"></script> -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
   </head>
   <body>
     <div class="container-scroller">
@@ -81,7 +87,7 @@
                             <td>
                               <?php if($value['status'] ==1){ ?><label class="badge badge-success">active</label><?php }else{?> <label class="badge badge-warning">Disabled</label> <?php } ?>
 
-                              <a href="<?php echo BASEURL; ?>itemController/itemedit/<?=$value['id']?>">Edit<i class="mdi mdi-pencil menu-icon"></i></a>
+                              <a href="<?php echo BASEURL; ?>itemController/itemedit/<?=$value['id']?>">Edit<i class="fa fa-pencil menu-icon"></i></a>
 
                               <a href="<?php echo BASEURL; ?>itemController/item_delete/<?=$value['id']?>" onclick="return confirm('Are you sure you want to delete this item')">Delete<i class="mdi mdi-delete menu-icon"></i></a>
 

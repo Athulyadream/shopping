@@ -12,8 +12,6 @@ define("DB_PASS", "");
 
 define("BASEURL", "http://localhost/shopping/");
 define("BASEFOLDER","/shopping");
-define("BASEFOLDERIMG","uploads/");
-define("BASEURLIMG",BASEURL."uploads/");
 
 
 
