@@ -12,7 +12,7 @@ class rout {
     {
         $url = $this->url();
         if(!empty($url)){
-            if(file_exists("../application/controllers/" . $url[0] . ".php")){
+            if(file_exists("application/controllers/" . $url[0] . ".php")){
                     $this->controller = $url[0];
                     unset($url[0]);
             } else {
@@ -21,7 +21,7 @@ class rout {
         }
         
         // Include controller
-        require_once "../application/controllers/" . $this->controller . ".php";
+        require_once "application/controllers/" . $this->controller . ".php";
         // Instantiate controller
         $this->controller = new $this->controller;
 
