@@ -99,7 +99,7 @@ class tableop{
 		if(!$res)
 
 		{
-
+			 $_SESSION['message_error'] = mysqli_error($connection);
 			$this->setError('An error occured query :'.mysqli_error($connection));
 
 			return false;
