@@ -28,9 +28,12 @@
 
                 <div class="card-body">
                   <h4 class="card-title">Add Item</h4>
-                  <form class="form-sample" action="<?php echo BASEURL; ?>itemController/addItem" method="post" name="item">
+                  <form class="form-sample" action="<?php echo BASEURL; ?>ItemController/addItem" method="post" name="item">
                    
                    <div class="row">
+                    <div class="col-md-12">
+                      <?php //echo  $_SESSION['message_success'] ? $_SESSION['message_success']:$_SESSION['message_error'] ?>
+                    </div>
                       <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Item Name</label>
@@ -78,7 +81,7 @@
                      
                     </div>
                     <button type="submit" class="btn btn-primary mr-2" onclick="return check();">Submit</button>
-          <a href="<?=BASEURL?>itemController/itemlist" class="btn btn-light">Cancel</a>
+          <a href="<?=BASEURL?>ItemController/itemlist" class="btn btn-light">Cancel</a>
                   </form>
                 </div>
               </div>

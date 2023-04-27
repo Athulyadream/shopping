@@ -1,14 +1,12 @@
 <?php
 
-class itemModel extends tableop {
+class ItemModel extends tableop {
 
 
   public function addItem($data){
         $data = implode(",", $data);
         $query = $this->insert_query("INSERT INTO `items`( `item_name`, `item_code`, `Item_price`, `Item_category`, `status`, `created_at`) VALUES (".$data.")");
-        echo "INSERT INTO `items`( `item_name`, `item_code`, `Item_price`, `Item_category`, `status`, `created_at`) VALUES (".$data.")";
-        // print_r($query);
-        // die();
+     
          return $query;
           
     }

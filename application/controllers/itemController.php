@@ -1,15 +1,15 @@
 <?php
 
-class itemController extends framework {
+class ItemController extends framework {
 
 
     public function __construct(){
-        $this->itemModel = $this->model('itemModel');
+        $this->ItemModel = $this->model('ItemModel');
     }
 
     public function index(){
 
-       $item = $this->itemModel->itemlist();
+       $item = $this->ItemModel->itemlist();
         $data['item'] = $item;
         $this->view("itemlist",$data);
     }
@@ -42,17 +42,24 @@ class itemController extends framework {
         
           if (count($errors) == 0) {
               $data = array($item_name,$item_code,$Item_price, $Item_category,$status,$created_at);
-              if($this->itemModel->addItem($data)){
+              if($this->ItemModel->addItem($data)){
+         
+         // $sessionName = "Item has been created successfully";
+         
+
                   $_SESSION['message_success'] = "Item has been created successfully";
-                  $this->redirect("itemController/itemlist");
+                  $this->redirect("ItemController/itemlist");
               }else{
                   $_SESSION['message_error'] = "Item failed to create";
-                  $this->redirect("itemController/itemlist ");
+            $this->flash("Item failed to create","error");
+
+                  $this->redirect("ItemController/itemlist ");
               }
    
           }else{
+            $this->flash("Item failed to create","error");
                 $_SESSION['message_error'] = "Item failed to create";
-                $this->redirect("itemController/itemlist ");
+                $this->redirect("ItemController/itemlist ");
                 
           }
 
@@ -64,7 +71,8 @@ class itemController extends framework {
        public function itemedit($id){
        
             $where = "id='$id'";
-            $data=$this->itemModel->getitem_row('items',$where);
+            $data=$this->ItemModel->getitem_row('items',$where);
+          
         
      
 
@@ -85,9 +93,13 @@ class itemController extends framework {
         $item_data[] = "Item_category ='".$Item_category."'";
       	$update_item_where = "id = '$itemId'";
         $table = 'items';
-        $query = $this->itemModel->update_table($table,$item_data,$update_item_where);
-        
-          $item = $this->itemModel->itemlist();
+        $query = $this->ItemModel->update_table($table,$item_data,$update_item_where);
+          if($query){
+                $_SESSION['message_success'] = "Item has been edited successfully";
+              }else{
+                 $_SESSION['message_error'] = "Item failed to edit";
+              }
+        $item = $this->ItemModel->itemlist();
         $data['page'] = 1;
         $data['item'] = $item;
         $this->view("itemlist",$data);
@@ -98,7 +110,7 @@ class itemController extends framework {
     public function itemDetails(){
         $itemid = $_POST['itemid'];
         $wheres  = "id = '$itemid'";
-        $data = $this->itemModel->getitem_row('items',$wheres);
+        $data = $this->ItemModel->getitem_row('items',$wheres);
         $this->view("item",$data);
     }
 
@@ -107,8 +119,13 @@ class itemController extends framework {
 	public function item_delete($id){
         $date = date('Y-m-d H:i:s');
         $itemid = $id;
-        $itemdetails=$this->itemModel->delete_item($itemid);
-           $item = $this->itemModel->itemlist();
+        $itemdetails=$this->ItemModel->delete_item($itemid);
+        if($itemdetails){
+                $_SESSION['message_success'] = "Item has been deleted successfully";
+              }else{
+                 $_SESSION['message_error'] = "Item failed to delete";
+              }
+           $item = $this->ItemModel->itemlist();
         $data['page'] = 1;
         $data['item'] = $item;
         $this->view("itemlist",$data);
@@ -121,7 +138,7 @@ class itemController extends framework {
 
     public function itemlist(){
         $date = date('Y-m-d H:i:s');
-        $item = $this->itemModel->itemlist();
+        $item = $this->ItemModel->itemlist();
         $data['page'] = 1;
         $data['item'] = $item;
         $this->view("itemlist",$data);

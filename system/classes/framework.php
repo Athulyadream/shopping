@@ -119,6 +119,7 @@ class framework {
          unset($_SESSION[$sessionName]);
 
       }
+      
 
    }
 

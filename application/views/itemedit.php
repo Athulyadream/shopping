@@ -24,7 +24,7 @@
 
                 <div class="card-body">
                   <h4 class="card-title">Edit Item</h4>
-                  <form class="form-sample" action="<?php echo BASEURL; ?>itemController/updateItem/<?=$data['id']?>" method="post" name="item">
+                  <form class="form-sample" action="<?php echo BASEURL; ?>ItemController/updateItem/<?=$data['id']?>" method="post" name="item">
                    
                     <div class="row">
                       <div class="col-md-6">
@@ -75,7 +75,7 @@
             
 
  <button type="submit" class="btn btn-primary mr-2"  onclick="return check();">Submit</button>
-<a href="<?=BASEURL?>itemController/itemlist" class="btn btn-light">Cancel</a>
+<a href="<?=BASEURL?>ItemController/itemlist" class="btn btn-light">Cancel</a>
              <!--        <button class="btn btn-light">Cancel</button> -->
 
 
