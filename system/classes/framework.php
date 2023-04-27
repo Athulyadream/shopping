@@ -22,7 +22,7 @@ class framework {
       if(file_exists("application/models/" . $modelName . ".php")){
 
         require_once "application/models/$modelName.php";
-        return new $modelName;
+        return new $modelName('items');
 
       } else {
         echo "<div style='margin:0;padding: 10px;background-color:silver;'>Sorry $modelName.php file not found </div>";

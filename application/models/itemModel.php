@@ -3,65 +3,58 @@
 class ItemModel extends tableop {
 
 
-  public function addItem($data){
-        $data = implode(",", $data);
-        $query = $this->insert_query("INSERT INTO `items`( `item_name`, `item_code`, `Item_price`, `Item_category`, `status`, `created_at`) VALUES (".$data.")");
-     
-         return $query;
+    public function addItem($post){
+        
+        $objitems   =   new tableop("items");
+        $insertRow  =   $this->insert($post);   
+        $id         =   $this->insertId();
+        if($insertRow)
+            return $id;
+        else 
+            return false; 
           
     }
 
-      public function update_table($table,$data,$where){
-        $data = implode(",", $data);
-      
+    public function update_table($post,$where){
 
-        $sql = "UPDATE `".$table."` SET ".$data;
-         if($where !=""){
-            $sql .=" WHERE ".$where;
-         }
+        $objitems      =  new tableop("items");
+        $updateRow  =   $this->update($post,$where);   
+        if($updateRow)
+            return true;
+        else 
+            return false; 
+
+    }
+     
+
+    public function getitem_row($where){
+
+        $objitems      =  new tableop("items");
+        $row    =   $this->getRow($where); 
+        if($row)
+            return $row;
+        else 
+            return false; 
+      
        
-         
-          $query = $this->query($sql);
-
-         return $query;
-          
-
-    }
-     
-
-    public function getitem_row($table,$where){
-      
-        $result = $this->query_result_row("SELECT * FROM `".$table."` WHERE ".$where);
-        return $result;
     }
 
 
 
     public function delete_item($item_id){
        
-        if($item_id !=""){
-            $sql ="DELETE FROM `items` WHERE id =".$item_id;
-            $query = $this->query($sql);
-        }
-        return $query;
+        if($item_id !="")
+            $query = $this->delete("id = '$item_id'");
+        return true;
 
     }
 
 
 
-   
-
-
     public function itemlist($where=NULL){
-
-        $sql ="SELECT * FROM `items` ";
-
-        if($where != ""){
-            $sql .= " WHERE ".$where;
-        }
-        $result = $this->query_result($sql);
-        if($result){
-            return $result;
+        $getitems =   $this->getAll($where);
+        if($getitems){
+            return $getitems;
         }else{
             return '';
         }
